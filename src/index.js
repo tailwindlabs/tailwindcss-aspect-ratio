@@ -16,8 +16,6 @@ const aspectRatio = plugin(
       })
       .join(',\n')
 
-    console.log(baseSelectors, childSelectors)
-
     addComponents(
       [
         {
