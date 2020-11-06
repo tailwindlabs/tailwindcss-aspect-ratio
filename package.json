@@ -16,9 +16,6 @@
   "scripts": {
     "prepublishOnly": "node scripts/build.js"
   },
-  "peerDependencies": {
-    "tailwindcss": "^1.0.0 || ^2.0.0"
-  },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "clean-css": "^4.2.1",
