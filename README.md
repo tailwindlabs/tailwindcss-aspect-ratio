@@ -40,6 +40,15 @@ Combine the `aspect-w-{n}` and `aspect-h-{n}` classes to specify the aspect rati
 </div>
 ```
 
+Use `aspect-none` to remove any aspect ratio behavior:
+
+```html
+<div class="aspect-w-16 aspect-h-9 lg:aspect-none">
+  <!-- ... -->
+</div>
+```
+
+
 Note that due to the way this currently needs to be implemented ([the old padding-bottom trick](https://css-tricks.com/aspect-ratio-boxes/)) you need to assign the aspect ratio to a _parent_ element, and make the actual element you are trying to size the only child of that parent.
 
 Once the [`aspect-ratio` property](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio) is supported in modern browsers, we'll add official support to Tailwind CSS itself and deprecate this plugin.
