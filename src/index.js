@@ -21,7 +21,7 @@ const aspectRatio = plugin(
         {
           [baseSelectors]: {
             position: 'relative',
-            paddingBottom: `calc(var(--aspect-h) / var(--aspect-w) * 100%)`,
+            paddingBottom: `calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)`,
           },
           [childSelectors]: {
             position: 'absolute',
@@ -49,14 +49,14 @@ const aspectRatio = plugin(
         Object.entries(values).map(([key, value]) => {
           return {
             [`.${e(`aspect-w-${key}`)}`]: {
-              '--aspect-w': value,
+              '--tw-aspect-w': value,
             },
           }
         }),
         Object.entries(values).map(([key, value]) => {
           return {
             [`.${e(`aspect-h-${key}`)}`]: {
-              '--aspect-h': value,
+              '--tw-aspect-h': value,
             },
           }
         }),
