@@ -17,9 +17,9 @@
     "prepublishOnly": "node scripts/build.js"
   },
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "10",
     "clean-css": "^4.2.1",
-    "postcss": "^7.0.17",
-    "tailwindcss": "^2.0.0-alpha.8"
+    "postcss": "^8.2.4",
+    "tailwindcss": "^2.0.2"
   }
 }
