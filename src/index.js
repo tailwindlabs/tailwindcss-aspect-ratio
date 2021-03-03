@@ -4,34 +4,22 @@ const aspectRatio = plugin(
   function ({ addComponents, theme, variants, e }) {
     const values = theme('aspectRatio')
 
-    const baseSelectors = Object.entries(values)
-      .map(([key, value]) => {
-        return `.${e(`aspect-w-${key}`)}`
-      })
-      .join(',\n')
-
-    const childSelectors = Object.entries(values)
-      .map(([key, value]) => {
-        return `.${e(`aspect-w-${key}`)} > *`
-      })
-      .join(',\n')
-
     addComponents(
       [
+        Object.entries(values).map(([key]) => {
+          return {
+            [`.${e(`aspect-w-${key}`)} > *`]: {
+              position: 'absolute',
+              height: '100%',
+              width: '100%',
+              top: '0',
+              right: '0',
+              bottom: '0',
+              left: '0',
+            },
+          }
+        }),
         {
-          [baseSelectors]: {
-            position: 'relative',
-            paddingBottom: `calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)`,
-          },
-          [childSelectors]: {
-            position: 'absolute',
-            height: '100%',
-            width: '100%',
-            top: '0',
-            right: '0',
-            bottom: '0',
-            left: '0',
-          },
           '.aspect-none': {
             position: 'static',
             paddingBottom: '0',
@@ -49,6 +37,8 @@ const aspectRatio = plugin(
         Object.entries(values).map(([key, value]) => {
           return {
             [`.${e(`aspect-w-${key}`)}`]: {
+              position: 'relative',
+              paddingBottom: `calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)`,
               '--tw-aspect-w': value,
             },
           }
