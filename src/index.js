@@ -21,7 +21,7 @@ const aspectRatio = plugin(
         {
           [baseSelectors]: {
             position: 'relative',
-            paddingBottom: `calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)`,
+            paddingBottom: `calc(var(--tw-aspect-h, 1) / var(--tw-aspect-w, 1) * 100%)`,
           },
           [childSelectors]: {
             position: 'absolute',
