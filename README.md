@@ -48,6 +48,13 @@ Use `aspect-none` to remove any aspect ratio behavior:
 </div>
 ```
 
+When removing aspect ratio behavior, if nested elements have `w-{n}` or `h-{n}` classes, ensure they are re-declared with a matching breakpoint prefix:
+
+```html
+<div class="aspect-w-16 aspect-h-9 lg:aspect-none">
+  <img src="..." alt="..." class="w-full h-full object-center object-cover lg:w-full lg:h-full" />
+</div>
+```
 
 Note that due to the way this currently needs to be implemented ([the old padding-bottom trick](https://css-tricks.com/aspect-ratio-boxes/)) you need to assign the aspect ratio to a _parent_ element, and make the actual element you are trying to size the only child of that parent.
 
