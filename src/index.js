@@ -1,5 +1,20 @@
 const plugin = require('tailwindcss/plugin')
 
+const baseStyles = {
+  position: 'relative',
+  paddingBottom: `calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)`,
+}
+
+const childStyles = {
+  position: 'absolute',
+  height: '100%',
+  width: '100%',
+  top: '0',
+  right: '0',
+  bottom: '0',
+  left: '0',
+}
+
 const noneComponent = {
   '.aspect-none': {
     position: 'static',
@@ -25,20 +40,11 @@ const aspectRatio = plugin(
         {
           'aspect-w': (value) => [
             {
-              position: 'relative',
-              paddingBottom: `calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)`,
+              ...baseStyles,
               '--tw-aspect-w': value,
             },
             {
-              '> *': {
-                position: 'absolute',
-                height: '100%',
-                width: '100%',
-                top: '0',
-                right: '0',
-                bottom: '0',
-                left: '0',
-              },
+              '> *': childStyles,
             },
           ],
           'aspect-h': (value) => ({ '--tw-aspect-h': value }),
@@ -66,19 +72,8 @@ const aspectRatio = plugin(
     addComponents(
       [
         {
-          [baseSelectors]: {
-            position: 'relative',
-            paddingBottom: `calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)`,
-          },
-          [childSelectors]: {
-            position: 'absolute',
-            height: '100%',
-            width: '100%',
-            top: '0',
-            right: '0',
-            bottom: '0',
-            left: '0',
-          },
+          [baseSelectors]: baseStyles,
+          [childSelectors]: childStyles,
         },
         noneComponent,
         Object.entries(values).map(([key, value]) => {
