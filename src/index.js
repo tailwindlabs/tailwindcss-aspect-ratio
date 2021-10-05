@@ -1,8 +1,61 @@
 const plugin = require('tailwindcss/plugin')
 
+const baseStyles = {
+  position: 'relative',
+  paddingBottom: `calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)`,
+}
+
+const childStyles = {
+  position: 'absolute',
+  height: '100%',
+  width: '100%',
+  top: '0',
+  right: '0',
+  bottom: '0',
+  left: '0',
+}
+
+const noneComponent = {
+  '.aspect-none': {
+    position: 'static',
+    paddingBottom: '0',
+  },
+  '.aspect-none > *': {
+    position: 'static',
+    height: 'auto',
+    width: 'auto',
+    top: 'auto',
+    right: 'auto',
+    bottom: 'auto',
+    left: 'auto',
+  },
+}
+
 const aspectRatio = plugin(
-  function ({ addComponents, theme, variants, e }) {
+  function ({ addComponents, matchComponents, theme, variants, e }) {
     const values = theme('aspectRatio')
+
+    if (matchComponents) {
+      matchComponents(
+        {
+          'aspect-w': (value) => [
+            {
+              ...baseStyles,
+              '--tw-aspect-w': value,
+            },
+            {
+              '> *': childStyles,
+            },
+          ],
+          'aspect-h': (value) => ({ '--tw-aspect-h': value }),
+        },
+        { values }
+      )
+
+      addComponents(noneComponent)
+
+      return
+    }
 
     const baseSelectors = Object.entries(values)
       .map(([key, value]) => {
@@ -19,33 +72,10 @@ const aspectRatio = plugin(
     addComponents(
       [
         {
-          [baseSelectors]: {
-            position: 'relative',
-            paddingBottom: `calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)`,
-          },
-          [childSelectors]: {
-            position: 'absolute',
-            height: '100%',
-            width: '100%',
-            top: '0',
-            right: '0',
-            bottom: '0',
-            left: '0',
-          },
-          '.aspect-none': {
-            position: 'static',
-            paddingBottom: '0',
-          },
-          '.aspect-none > *': {
-            position: 'static',
-            height: 'auto',
-            width: 'auto',
-            top: 'auto',
-            right: 'auto',
-            bottom: 'auto',
-            left: 'auto',
-          },
+          [baseSelectors]: baseStyles,
+          [childSelectors]: childStyles,
         },
+        noneComponent,
         Object.entries(values).map(([key, value]) => {
           return {
             [`.${e(`aspect-w-${key}`)}`]: {
