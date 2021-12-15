@@ -101,3 +101,42 @@ module.exports = {
   }
 }
 ```
+
+## Compatibility with default aspect-ratio utilities
+
+Tailwind CSS v3.0 shipped with [native aspect-ratio](https://tailwindcss.com/docs/aspect-ratio) support, and while these new utilities are great, the `aspect-ratio` property isn't supported in Safari 14, which still has [significant global usage](https://caniuse.com/mdn-css_properties_aspect-ratio). If you need to support Safari 14, this plugin is still the best way to do that.
+
+While it's technically possible to use the new native `aspect-ratio` utilities as well as this plugin in the same project, it doesn't really make a lot of sense to do so. If you're able to use the new native aspect-ratio utilities, just use them instead of this plugin, as they are a lot simpler and work much better.
+
+However, if you do want to use both approaches in your project, maybe as a way of transitioning slowly from the plugin approach to the new native utilities, you'll need to add the following values to your `tailwind.config.js` file:
+
+```js
+module.exports = {
+  // ...
+  theme: {
+    aspectRatio: {
+      auto: 'auto',
+      square: '1 / 1',
+      video: '16 / 9',
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
+      6: '6',
+      7: '7',
+      8: '8',
+      9: '9',
+      10: '10',
+      11: '11',
+      12: '12',
+      13: '13',
+      14: '14',
+      15: '15',
+      16: '16',
+    },
+  },
+}
+```
+
+This is necessary, as the default `aspectRatio` values are overwritten by this plugin's values.
