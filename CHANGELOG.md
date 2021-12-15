@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Added
+
+- Remove `dist` folder and related dependencies ([#29](https://github.com/tailwindlabs/tailwindcss-aspect-ratio/pull/29))
 
 ## [0.4.0] - 2021-12-09
 
