@@ -8,11 +8,7 @@ A plugin that provides a composable API for giving elements a fixed aspect ratio
 Install the plugin from npm:
 
 ```sh
-# Using npm
-npm install @tailwindcss/aspect-ratio
-
-# Using Yarn
-yarn add @tailwindcss/aspect-ratio
+npm install -D @tailwindcss/aspect-ratio
 ```
 
 Then add the plugin to your `tailwind.config.js` file:
