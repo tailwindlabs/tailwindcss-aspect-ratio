@@ -11,13 +11,16 @@ Install the plugin from npm:
 npm install -D @tailwindcss/aspect-ratio
 ```
 
-Then add the plugin to your `tailwind.config.js` file:
+Then add the plugin to your `tailwind.config.js` file, and disable the `aspectRatio` core plugin to avoid conflicts with the native `aspect-ratio` utilities included in Tailwind CSS v3.0:
 
 ```js
 // tailwind.config.js
 module.exports = {
   theme: {
     // ...
+  },
+  corePlugins: {
+    aspectRatio: false,
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
