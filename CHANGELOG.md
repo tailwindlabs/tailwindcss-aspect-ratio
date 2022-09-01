@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Remove `dist` folder and related dependencies ([#29](https://github.com/tailwindlabs/tailwindcss-aspect-ratio/pull/29))
+- Add typescript types ([#33](https://github.com/tailwindlabs/tailwindcss-aspect-ratio/pull/33))
 
 ## [0.4.0] - 2021-12-09
 
