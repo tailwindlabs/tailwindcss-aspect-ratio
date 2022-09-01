@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Nothing yet!
+
+## [0.4.1] - 2022-09-01
+
 ### Added
 
 - Remove `dist` folder and related dependencies ([#29](https://github.com/tailwindlabs/tailwindcss-aspect-ratio/pull/29))
@@ -70,7 +74,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss-aspect-ratio/compare/v0.4.0...HEAD
+[unreleased]: https://github.com/tailwindlabs/tailwindcss-aspect-ratio/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/tailwindlabs/tailwindcss-aspect-ratio/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/tailwindlabs/tailwindcss-aspect-ratio/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/tailwindlabs/tailwindcss-aspect-ratio/compare/v0.2.2...v0.3.0
 [0.2.2]: https://github.com/tailwindlabs/tailwindcss-aspect-ratio/compare/v0.2.1...v0.2.2
