@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Fixed
+
+- Update TypeScript types ([#34](https://github.com/tailwindlabs/tailwindcss-aspect-ratio/pull/34))
 
 ## [0.4.1] - 2022-09-01
 
