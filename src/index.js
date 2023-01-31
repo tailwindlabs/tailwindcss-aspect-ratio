@@ -40,8 +40,8 @@ const aspectRatio = plugin(
         {
           'aspect-w': (value) => [
             {
-              ...baseStyles,
               '--tw-aspect-w': value,
+              ...baseStyles,
             },
             {
               '> *': childStyles,

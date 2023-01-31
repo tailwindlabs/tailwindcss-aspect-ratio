@@ -2,9 +2,9 @@ const postcss = require('postcss')
 
 let expectedV3 = `
 .aspect-w-1 {
+    --tw-aspect-w: 1;
     position: relative;
-    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
-    --tw-aspect-w: 1
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)
 }
 .aspect-w-1 > * {
     position: absolute;
@@ -16,9 +16,9 @@ let expectedV3 = `
     left: 0
 }
 .aspect-w-2 {
+    --tw-aspect-w: 2;
     position: relative;
-    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
-    --tw-aspect-w: 2
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)
 }
 .aspect-w-2 > * {
     position: absolute;
@@ -33,9 +33,9 @@ let expectedV3 = `
     --tw-aspect-h: 2
 }
 .aspect-w-\\[123\\] {
+    --tw-aspect-w: 123;
     position: relative;
-    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
-    --tw-aspect-w: 123
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)
 }
 .aspect-w-\\[123\\] > * {
     position: absolute;
@@ -47,9 +47,9 @@ let expectedV3 = `
     left: 0
 }
 .aspect-w-\\[var\\(--width\\)\\] {
+    --tw-aspect-w: var(--width);
     position: relative;
-    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
-    --tw-aspect-w: var(--width)
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%)
 }
 .aspect-w-\\[var\\(--width\\)\\] > * {
     position: absolute;
