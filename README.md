@@ -1,3 +1,6 @@
+> [!NOTE]
+> As of Tailwind CSS v3.0, `aspect-ratio` utilities are included in the framework by default, so this plugin is no longer required for most projects. However, it can still be useful if you need to support browsers that don’t support the CSS `aspect-ratio` property (like Safari 14).
+
 # @tailwindcss/aspect-ratio
 
 A plugin that provides a composable API for giving elements a fixed aspect ratio.
