@@ -1,6 +1,15 @@
 const postcss = require('postcss')
 
 let expectedV3 = `
+.aspect-h-2 {
+    --tw-aspect-h: 2
+}
+.aspect-h-\\[123\\] {
+    --tw-aspect-h: 123
+}
+.aspect-h-\\[var\\(--height\\)\\] {
+    --tw-aspect-h: var(--height)
+}
 .aspect-w-1 {
     position: relative;
     padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
@@ -28,9 +37,6 @@ let expectedV3 = `
     right: 0;
     bottom: 0;
     left: 0
-}
-.aspect-h-2 {
-    --tw-aspect-h: 2
 }
 .aspect-w-\\[123\\] {
     position: relative;
@@ -60,12 +66,6 @@ let expectedV3 = `
     bottom: 0;
     left: 0
 }
-.aspect-h-\\[123\\] {
-    --tw-aspect-h: 123
-}
-.aspect-h-\\[var\\(--height\\)\\] {
-    --tw-aspect-h: var(--height)
-}
 .aspect-none {
     position: static;
     padding-bottom: 0
@@ -81,8 +81,8 @@ let expectedV3 = `
 }
 `
 
-it('v3', () => {
-  let css = postcss([
+it('v3', async () => {
+  let { css } = await postcss([
     require('tailwindcss')({
       content: [
         {
@@ -91,7 +91,7 @@ it('v3', () => {
       ],
       plugins: [require('../')],
     }),
-  ]).process('@tailwind components').css
+  ]).process('@tailwind components', { from: undefined })
 
   expect(css).toBe(expectedV3.trim())
 })
@@ -142,16 +142,14 @@ let expectedV2 = `
 }
 `
 
-it('v2', () => {
-  postcss([
+it('v2', async () => {
+  let { css } = await postcss([
     require('tailwindcss-v2')({
       purge: { enabled: true, content: [{ raw: 'aspect-none aspect-w-1 aspect-w-2 aspect-h-2' }] },
       variants: [],
       plugins: [require('../')],
     }),
-  ])
-    .process('@tailwind components', { from: undefined })
-    .then(({ css }) => {
-      expect(css).toBe(expectedV2.trim())
-    })
+  ]).process('@tailwind components', { from: undefined })
+
+  expect(css).toBe(expectedV2.trim())
 })
