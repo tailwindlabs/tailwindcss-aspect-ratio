@@ -54,4 +54,4 @@ jobs:
         run: pnpm version "$INSIDERS_VERSION" --force --no-git-tag-version
 
       - name: Publish
-        run: pnpm publish --provenance --tag "$RELEASE_CHANNEL"
+        run: pnpm publish --provenance --tag "$RELEASE_CHANNEL" --no-git-checks
